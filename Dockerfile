@@ -10,9 +10,10 @@ ENV LC_ALL C
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update \
-&& apt-get install -y  ssh net-tools bash-completion dnsutils sudo systemd systemd-sysv git python3 python3-pip \
+&& apt-get install -y  ssh nano net-tools bash-completion dnsutils sudo systemd systemd-sysv git python3 python3-pip locales \
 && apt-get clean \
-&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+&& locale-gen en_US.UTF-8
 
 ## Systemd setup
 ## Adapted from https://github.com/j8r/dockerfiles/blob/master/systemd/ubuntu/20.04.Dockerfile
